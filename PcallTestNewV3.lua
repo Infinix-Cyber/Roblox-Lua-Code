@@ -1,0 +1,84 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TextChatService = game:GetService("TextChatService")
+
+local Remote = ReplicatedStorage:WaitForChild("01_server", 5)
+if not Remote then return end
+
+local WHITELIST = {
+	["TheLocalMazeV2"] = true,
+	["TheLocalMaze"] = true,
+	["Quur92"] = true,
+	["BAcON_KJpast"] = true
+}
+
+TextChatService.MessageReceived:Connect(function(message)
+	-- Безопасно получаем имя игрока через pcall, чтобы обойти баги инжектора
+	local success, username = pcall(function()
+		return message.FromUser.Name
+	end)
+	
+	-- Если имя не прочиталось или игрока нет в вайтлисте — выходим без ошибок
+	if not success or not username or not WHITELIST[username] then return end
+
+	if message.Text == "-# Rigs1" then
+		local args1 = {
+			"cmd",
+			"-gh 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835 86532446465835"
+		}
+		Remote:FireServer(unpack(args1))
+
+		task.wait(2)
+
+		local args2 = {
+			"cmd",
+			"-pd"
+		}
+		Remote:FireServer(unpack(args2))
+
+	elseif message.Text == "-# PlushRigs" then
+		local args1 = {
+			"cmd",
+			"-gh 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628 99134410491628"
+		}
+		Remote:FireServer(unpack(args1))
+
+		task.wait(2)
+
+		local args2 = {
+			"cmd",
+			"-pd"
+		}
+		Remote:FireServer(unpack(args2))
+
+	elseif message.Text == "-# PlushRigs2" then
+		local args1 = {
+			"cmd",
+			"-gh 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669 130209733282669"
+		}
+		Remote:FireServer(unpack(args1))
+
+		task.wait(2)
+
+		local args2 = {
+			"cmd",
+			"-pd"
+		}
+		Remote:FireServer(unpack(args2))
+
+	elseif message.Text == "-# ToryRigs" then
+		local args1 = {
+			"cmd",
+			"-gh 5316479641,5316539421,5268602207,5316549755,132006952641112,102523984905681,77986176057943,89328465080930,111787383238402,126699902233201,138364679836274"
+		}
+		Remote:FireServer(unpack(args1))
+
+		task.wait(2)
+
+		local args2 = {
+			"cmd",
+			"-pd"
+		}
+		Remote:FireServer(unpack(args2))
+	end
+end)
